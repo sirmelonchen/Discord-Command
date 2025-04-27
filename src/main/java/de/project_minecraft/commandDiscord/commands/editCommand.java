@@ -22,24 +22,31 @@ public class editCommand implements CommandExecutor {
             sender.sendMessage("§cVerwendung: /discord config <key> <value>");
             return false;
         }
-
         String key = args[0];  // Der Konfigurations-Schlüssel
         String value = args[1];  // Der Wert, der gesetzt werden soll
 
         // Die Konfiguration holen
         FileConfiguration config = plugin.getConfig();
+        if (config.contains(key)) {
+            // Setze den Wert in der Konfiguration
+            config.set(key, value);
 
-        // Setze den Wert in der Konfiguration
-        config.set(key, value);
+            // Speichern der Konfiguration
+            plugin.saveConfig();
 
-        // Speichern der Konfiguration
-        plugin.saveConfig();
+            // Erfolgsnachricht an den Sender senden
+            sender.sendMessage("§aDer Wert für " + key + " wurde auf " + value + " gesetzt und gespeichert!");
 
-        // Erfolgsnachricht an den Sender senden
-        sender.sendMessage("§aDer Wert für " + key + " wurde auf " + value + " gesetzt und gespeichert!");
+            plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "discord reload");
+            sender.sendMessage("§aDie Konfiguration wurde erfolgreich neu geladen.");
+        } else {
+            // Key existiert nicht -> Fehlermeldung
+            sender.sendMessage("§cUngültiger Key: '" + key + "'. Bitte wähle einen existierenden Schlüssel.");
+        }
 
-        plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "discord reload");
-        sender.sendMessage("§aDie Konfiguration wurde erfolgreich neu geladen.");
+
+
+
         return true;
     }
 }
