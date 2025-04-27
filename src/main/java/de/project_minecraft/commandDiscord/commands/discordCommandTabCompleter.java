@@ -20,10 +20,21 @@ public class discordCommandTabCompleter implements TabCompleter {
 
         // Wenn der Befehl nur "/discord" ist, zeigen wir Unterbefehle an
         if (args.length == 1) {
-            // Unterbefehle: "reload", "ping"
-            if (sender.hasPermission("discord.admin")){
-                completions.add("edit");
-                completions.add("reload");
+            if (sender.hasPermission("discord.admin")) {
+                if ("edit".startsWith(args[0].toLowerCase())) {
+                    completions.add("edit");
+                }
+                if ("reload".startsWith(args[0].toLowerCase())) {
+                    completions.add("reload");
+                }
+            }
+        }
+        else if (args.length == 2 && args[0].equalsIgnoreCase("edit")) {
+            FileConfiguration config = plugin.getConfig();
+            for (String key : config.getKeys(false)) {
+                if (key.toLowerCase().startsWith(args[1].toLowerCase())) {
+                    completions.add(key);
+                }
             }
         }
         if (args.length == 2 && args[0].equalsIgnoreCase("edit")) {

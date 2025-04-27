@@ -10,7 +10,6 @@ commands:
     aliases: [d]
   reload:
     description: Lädt die config neu
-    usage: /discord reload
     aliases: [r]
   edit:
     description: Bearbeite die Config
