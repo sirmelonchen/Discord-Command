@@ -1,0 +1,27 @@
+name: DiscordCommand
+main: de.project_minecraft.commandDiscord.CommandDiscord
+version: 0.1 rev. 1
+authors:
+  - sir_melonchen
+description: Ein Command der einen Discord-Link ausspuckt
+commands:
+  discord:
+    description: Hauptbefehl
+    usage: /discord <reload>
+    aliases: [d]
+  reload:
+    description: Lädt die config neu
+    usage: /discord reload
+    aliases: [r]
+  edit:
+    description: Bearbeite die Config
+    usage: /discord edit
+    aliases: [e]
+command-completions:
+  discord:
+    executor: de.project_minecraft.commandDiscord.commands.discordCommand
+    tab-completer: de.project_minecraft.commandDiscord.commands.discordCommandTabCompleter
+permissions:
+  discord.admin:
+    description: Erlaubt das Bearbeiten der Konfiguration
+    default: op
