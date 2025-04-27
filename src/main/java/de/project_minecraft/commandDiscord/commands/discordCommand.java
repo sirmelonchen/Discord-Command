@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 public class discordCommand implements CommandExecutor {
     private final JavaPlugin plugin;
@@ -14,9 +15,10 @@ public class discordCommand implements CommandExecutor {
         this.plugin = plugin;
     }
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (args.length == 0) {
             String link = plugin.getConfig().getString("link");
+            assert link != null;
             sender.sendMessage(Component.text("Discord Link: ", NamedTextColor.AQUA)
                     .append(Component.text(link, NamedTextColor.YELLOW)
                             .decorate(TextDecoration.BOLD)));
