@@ -37,15 +37,7 @@ public class discordCommandTabCompleter implements TabCompleter {
                 }
             }
         }
-        if (args.length == 2 && args[0].equalsIgnoreCase("edit")) {
-            FileConfiguration config = plugin.getConfig();
-            // Hole alle Schlüsselnamen aus der Konfiguration
-            for (String key : config.getKeys(false)) {
-                if (key.startsWith(args[1])) {  // Filtere die Konfiguration anhand der Eingabe des Spielers
-                    completions.add(key);
-                }
-            }
-        }
+
 
         return completions;
     }
