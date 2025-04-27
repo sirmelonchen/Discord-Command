@@ -22,8 +22,8 @@ public class editCommand implements CommandExecutor {
             sender.sendMessage("§cVerwendung: /discord config <key> <value>");
             return false;
         }
-        String key = args[0];  // Der Konfigurations-Schlüssel
-        String value = args[1];  // Der Wert, der gesetzt werden soll
+        String key = args[1];  // Der Konfigurations-Schlüssel
+        String value = args[2];  // Der Wert, der gesetzt werden soll
 
         // Die Konfiguration holen
         FileConfiguration config = plugin.getConfig();
