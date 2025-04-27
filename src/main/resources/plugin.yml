@@ -7,7 +7,6 @@ description: Ein Command der einen Discord-Link ausspuckt
 commands:
   discord:
     description: Hauptbefehl
-    usage: /discord
     aliases: [d]
   reload:
     description: Lädt die config neu
@@ -15,7 +14,7 @@ commands:
     aliases: [r]
   edit:
     description: Bearbeite die Config
-    usage: /discord edit
+    usage: /discord edit <key> <value>
     aliases: [e]
 command-completions:
   discord:
