@@ -16,12 +16,20 @@ public final class CommandDiscord extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        int pluginId = 25655;
-        Metrics metrics = new Metrics(this, pluginId);
+        boolean bStatsEnabled = getConfig().getBoolean("bstats-enabled", true);
+
         // Commands registrieren
         getCommand("discord").setExecutor(new DiscordCommand(this));
         getCommand("discord").setTabCompleter(new DiscordCommandTabCompleter(this));  // TabCompleter für /discord und Unterbefehle
         saveDefaultConfig();
+        if (bStatsEnabled) {
+            // bStats initialisieren, falls die Einstellung aktiviert ist
+            int pluginId = 25655; // Ersetze dies mit deiner eigenen Plugin-ID von bStats
+            Metrics metrics = new Metrics(this, pluginId);
+        } else {
+            // bStats deaktivieren (bei Bedarf, aber in den meisten Fällen wird das automatisch durch bStats gehandhabt)
+            getLogger().warning("bStats wurde vom Nutzer deaktiviert.");
+        }
         getLogger().info("Plugin aktiviert!");
     }
 
