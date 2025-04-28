@@ -1,5 +1,6 @@
 package de.project_minecraft.commandDiscord.commands;
 
+import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.event.HoverEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
@@ -60,7 +61,10 @@ public class HelpCommand implements CommandExecutor {
                 .append(Component.text("Website: ")
                         .color(TextColor.color(0x808080))) // Grau
                 .append(Component.text("www.pluginwebsite.de")
-                        .hoverEvent(HoverEvent.showText(Component.text("Klicke hier für die Website!").color(NamedTextColor.DARK_RED).decorate(TextDecoration.BOLD)))
+                        .hoverEvent(HoverEvent.showText(Component.text("Klicke hier für die Website!")
+                                .color(NamedTextColor.DARK_RED)
+                                .decorate(TextDecoration.BOLD)))
+                        .clickEvent(ClickEvent.openUrl("https://www.pluginwebsite.de"))
                         .color(TextColor.color(0x00FFFF))); // Aqua
         player.sendMessage(message);
 
