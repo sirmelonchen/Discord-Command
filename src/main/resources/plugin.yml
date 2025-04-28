@@ -1,6 +1,6 @@
 name: DiscordCommand
 main: de.project_minecraft.commandDiscord.CommandDiscord
-version: 0.1 rev-2
+version: 0.1 rev-3
 authors:
   - sir_melonchen
 description: Ein Command der einen Discord-Link ausspuckt
@@ -8,13 +8,6 @@ commands:
   discord:
     description: Hauptbefehl
     aliases: [d]
-  reload:
-    description: Lädt die config neu
-    aliases: [r]
-  edit:
-    description: Bearbeite die Config
-    usage: /discord edit <key> <value>
-    aliases: [e]
 command-completions:
   discord:
     executor: de.project_minecraft.commandDiscord.commands.discordCommand
