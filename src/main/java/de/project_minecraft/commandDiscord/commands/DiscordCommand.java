@@ -1,6 +1,7 @@
 package de.project_minecraft.commandDiscord.commands;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.command.Command;
@@ -21,6 +22,7 @@ public class DiscordCommand implements CommandExecutor {
             assert link != null;
             sender.sendMessage(Component.text("Discord Link: ", NamedTextColor.AQUA)
                     .append(Component.text(link, NamedTextColor.YELLOW)
+                            .clickEvent(ClickEvent.openUrl(link))
                             .decorate(TextDecoration.BOLD)));
             return true;
         }
