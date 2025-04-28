@@ -5,17 +5,18 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class discordCommandTabCompleter implements TabCompleter {
+public class DiscordCommandTabCompleter implements TabCompleter {
     private final CommandDiscord plugin;
 
-    public discordCommandTabCompleter(CommandDiscord plugin) {
+    public DiscordCommandTabCompleter(CommandDiscord plugin) {
         this.plugin = plugin;
     }
-    public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         List<String> completions = new ArrayList<>();
 
         // Wenn der Befehl nur "/discord" ist, zeigen wir Unterbefehle an
@@ -27,6 +28,9 @@ public class discordCommandTabCompleter implements TabCompleter {
                 if ("reload".startsWith(args[0].toLowerCase())) {
                     completions.add("reload");
                 }
+            }
+            if ("help".startsWith(args[0].toLowerCase())) {
+                completions.add("help");
             }
         }
         else if (args.length == 2 && args[0].equalsIgnoreCase("edit")) {

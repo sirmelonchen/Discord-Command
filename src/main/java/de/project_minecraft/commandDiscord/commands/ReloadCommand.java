@@ -7,14 +7,15 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
-public class reloadCommand implements CommandExecutor {
+public class ReloadCommand implements CommandExecutor {
     private final JavaPlugin plugin;
-    public reloadCommand(JavaPlugin plugin){
+    public ReloadCommand(JavaPlugin plugin){
         this.plugin = plugin;
     }
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, @NotNull Command command, @NotNull String label, String @NotNull [] args) {
         if (!sender.hasPermission("discord.admin")){
             sender.sendMessage("§cDu hast keine Berechtigung, diese Konfiguration zu bearbeiten.");
             return false;

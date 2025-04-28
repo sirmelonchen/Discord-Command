@@ -12,14 +12,15 @@ public final class CommandDiscord extends JavaPlugin {
     public void onEnable() {
         instance = this;
         // Commands registrieren
-        getCommand("discord").setExecutor(new discordCommand(this));
-        getCommand("discord").setTabCompleter(new discordCommandTabCompleter(this));  // TabCompleter für /discord und Unterbefehle
+        getCommand("discord").setExecutor(new DiscordCommand(this));
+        getCommand("discord").setTabCompleter(new DiscordCommandTabCompleter(this));  // TabCompleter für /discord und Unterbefehle
         saveDefaultConfig();
         getLogger().info("Plugin aktiviert!");
     }
 
     @Override
     public void onDisable() {
+        getLogger().info("Plugin Deaktiviert!");
         // Plugin shutdown logic
     }
     public static CommandDiscord getInstance(){

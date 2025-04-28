@@ -7,9 +7,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-public class editCommand implements CommandExecutor {
+public class EditCommand implements CommandExecutor {
     private final JavaPlugin plugin;
-    public editCommand(JavaPlugin plugin){
+    public EditCommand(JavaPlugin plugin){
         this.plugin = plugin;
     }
     @Override

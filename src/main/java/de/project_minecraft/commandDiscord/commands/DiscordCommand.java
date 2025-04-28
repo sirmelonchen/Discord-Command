@@ -9,9 +9,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-public class discordCommand implements CommandExecutor {
+public class DiscordCommand implements CommandExecutor {
     private final JavaPlugin plugin;
-    public discordCommand(JavaPlugin plugin){
+    public DiscordCommand(JavaPlugin plugin){
         this.plugin = plugin;
     }
     @Override
@@ -27,10 +27,13 @@ public class discordCommand implements CommandExecutor {
 
         // Unterbefehl "reload"
         if (args[0].equalsIgnoreCase("reload")) {
-            return new reloadCommand(plugin).onCommand(sender, command, label, args);
+            return new ReloadCommand(plugin).onCommand(sender, command, label, args);
         }
         if (args[0].equalsIgnoreCase("edit")) {
-            return new editCommand(plugin).onCommand(sender, command, label, args);
+            return new EditCommand(plugin).onCommand(sender, command, label, args);
+        }
+        if (args[0].equalsIgnoreCase("help")) {
+            return new HelpCommand(plugin).onCommand(sender, command, label, args);
         }
 
         sender.sendMessage("§cUnbekannter Unterbefehl! Verwende: /discord help");
