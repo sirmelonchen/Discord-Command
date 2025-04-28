@@ -1,8 +1,13 @@
 
 package de.project_minecraft.commandDiscord;
 
-import de.project_minecraft.commandDiscord.commands.*;
+import de.project_minecraft.commandDiscord.commands.DiscordCommand;
+import de.project_minecraft.commandDiscord.commands.DiscordCommandTabCompleter;
+import de.project_minecraft.commandDiscord.misc.Metrics;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.concurrent.Callable;
 
 public final class CommandDiscord extends JavaPlugin {
 
@@ -11,6 +16,8 @@ public final class CommandDiscord extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        int pluginId = 25655;
+        Metrics metrics = new Metrics(this, pluginId);
         // Commands registrieren
         getCommand("discord").setExecutor(new DiscordCommand(this));
         getCommand("discord").setTabCompleter(new DiscordCommandTabCompleter(this));  // TabCompleter für /discord und Unterbefehle
