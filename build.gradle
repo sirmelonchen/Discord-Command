@@ -7,7 +7,7 @@ group = 'de.project_minecraft'
 version = '1.1 rev-1'
 
 jar {
-    baseName = 'DiscordCommand'  // Der Name der generierten .jar-Datei
+    archiveBaseName = 'DiscordCommand'  // Der Name der generierten .jar-Datei
 }
 
 repositories {
