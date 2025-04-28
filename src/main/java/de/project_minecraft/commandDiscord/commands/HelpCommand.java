@@ -23,7 +23,9 @@ public class HelpCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
         Player player = (Player) sender;
         String version = plugin.getPluginMeta().getVersion();
+        String website = plugin.getConfig().getString("website");
 
+        assert website != null;
         TextComponent message = Component.text("=== ")
                 .color(TextColor.color(0xFFD700)) // Gold
                 .append(Component.text("Discord Command")
@@ -60,11 +62,11 @@ public class HelpCommand implements CommandExecutor {
                         .color(TextColor.color(0xFFFF00))) // Gelb
                 .append(Component.text("Website: ")
                         .color(TextColor.color(0x808080))) // Grau
-                .append(Component.text("www.pluginwebsite.de")
+                .append(Component.text(website)
                         .hoverEvent(HoverEvent.showText(Component.text("Klicke hier für die Website!")
                                 .color(NamedTextColor.DARK_RED)
                                 .decorate(TextDecoration.BOLD)))
-                        .clickEvent(ClickEvent.openUrl("https://www.pluginwebsite.de"))
+                        .clickEvent(ClickEvent.openUrl(website))
                         .color(TextColor.color(0x00FFFF))); // Aqua
         player.sendMessage(message);
 

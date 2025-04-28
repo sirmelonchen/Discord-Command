@@ -1,6 +1,6 @@
 name: DiscordCommand
 main: de.project_minecraft.commandDiscord.CommandDiscord
-version: 1.0 rev-1
+version: 1.0 rev-2
 authors:
   - sir_melonchen
 description: Ein Command der einen Discord-Link ausspuckt

@@ -17,7 +17,7 @@ public class DiscordCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (args.length == 0) {
-            String link = plugin.getConfig().getString("link");
+            String link = plugin.getConfig().getString("discord_link");
             assert link != null;
             sender.sendMessage(Component.text("Discord Link: ", NamedTextColor.AQUA)
                     .append(Component.text(link, NamedTextColor.YELLOW)
