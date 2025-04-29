@@ -15,11 +15,11 @@ public class EditCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
         if (!sender.hasPermission("discord.admin")){
-            sender.sendMessage("§cDu hast keine Berechtigung, diese Konfiguration zu bearbeiten.");
+            sender.sendMessage("§cYou dont have permissions to execute that command.");
             return false;
         }
         if (args.length < 2) {
-            sender.sendMessage("§cVerwendung: /discord config <key> <value>");
+            sender.sendMessage("§cUsage:: /discord config <key> <value>");
             return false;
         }
         String key = args[1];  // Der Konfigurations-Schlüssel
@@ -35,13 +35,13 @@ public class EditCommand implements CommandExecutor {
             plugin.saveConfig();
 
             // Erfolgsnachricht an den Sender senden
-            sender.sendMessage("§aDer Wert für " + key + " wurde auf " + value + " gesetzt und gespeichert!");
+            sender.sendMessage("§aThe value for " + key + " has been set to " + value + " and saved!");
 
             plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "discord reload");
-            sender.sendMessage("§aDie Konfiguration wurde erfolgreich neu geladen.");
+            sender.sendMessage("§aThe config was reloaded.");
         } else {
             // Key existiert nicht -> Fehlermeldung
-            sender.sendMessage("§cUngültiger Key: '" + key + "'. Bitte wähle einen existierenden Schlüssel.");
+            sender.sendMessage("§cInvalid key: '" + key + "'. Please choose an existing key.");
         }
 
 

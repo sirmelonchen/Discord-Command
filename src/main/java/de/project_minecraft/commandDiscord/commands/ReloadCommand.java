@@ -17,7 +17,7 @@ public class ReloadCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, @NotNull Command command, @NotNull String label, String @NotNull [] args) {
         if (!sender.hasPermission("discord.admin")){
-            sender.sendMessage("§cDu hast keine Berechtigung, diese Konfiguration zu bearbeiten.");
+            sender.sendMessage("§cYou dont have permissions to execute that command.");
             return false;
         }
         plugin.reloadConfig();

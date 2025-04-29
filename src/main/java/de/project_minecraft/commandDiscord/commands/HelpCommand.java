@@ -41,29 +41,29 @@ public class HelpCommand implements CommandExecutor {
                 .append(Component.text("sir_melonchen")
                         .color(TextColor.color(0xFFFFFF))) // Weiß
                 .append(Component.text("\n\n"))
-                .append(Component.text("Befehle:\n")
+                .append(Component.text("Commands:\n")
                         .color(TextColor.color(0xFFFF00))) // Gelb
                 .append(Component.text("/discord reload")
                         .color(TextColor.color(0x00FFFF))) // Aqua
-                .append(Component.text(" - Lädt die Konfiguration neu")
+                .append(Component.text(" - Reloads the config")
                         .color(TextColor.color(0x808080))) // Grau
                 .append(Component.text("\n"))
                 .append(Component.text("/discord set <key> <value>")
                         .color(TextColor.color(0x00FFFF))) // Aqua
-                .append(Component.text(" - Setzt die Config")
+                .append(Component.text(" - Sets keys in the config")
                         .color(TextColor.color(0x808080))) // Grau
                 .append(Component.text("\n"))
                 .append(Component.text("/discord help")
                         .color(TextColor.color(0x00FFFF))) // Aqua
-                .append(Component.text(" - Zeigt diese Hilfe an")
+                .append(Component.text(" - Shows this page.")
                         .color(TextColor.color(0x808080))) // Grau
                 .append(Component.text("\n\n"))
-                .append(Component.text("Weitere Infos:\n")
+                .append(Component.text("More informations:\n")
                         .color(TextColor.color(0xFFFF00))) // Gelb
                 .append(Component.text("Website: ")
                         .color(TextColor.color(0x808080))) // Grau
                 .append(Component.text(website)
-                        .hoverEvent(HoverEvent.showText(Component.text("Klicke hier für die Website!")
+                        .hoverEvent(HoverEvent.showText(Component.text("Click here for the website!")
                                 .color(NamedTextColor.DARK_RED)
                                 .decorate(TextDecoration.BOLD)))
                         .clickEvent(ClickEvent.openUrl(website))
