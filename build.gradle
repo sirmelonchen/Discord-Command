@@ -6,8 +6,16 @@ plugins {
 group = 'de.project_minecraft'
 version = '1.1 rev-6'
 
+processResources {
+    filesMatching('plugin.yml') {
+        expand(version: project.version)
+    }
+}
 jar {
     archiveBaseName = 'DiscordCommand'  // Der Name der generierten .jar-Datei
+    archiveVersion.set('')           // Keine Versionsnummer im Namen
+    archiveClassifier.set('')        // Kein -plain oder -all etc.
+    archiveFileName.set("DiscordCommand.jar")
 }
 
 repositories {
