@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class VersionChecker {
 
-    private static final String VERSION_URL = "https://dein-jenkins.de/job/MyPlugin/lastSuccessfulBuild/artifact/version.txt";
+    private static final String VERSION_URL = "https://jenkins.beugsiud.de/job/Discord%20Command/lastStableBuild/execution/node/3/ws/version.txt";
     private final JavaPlugin plugin;
 
     public VersionChecker(JavaPlugin plugin) {
@@ -30,13 +30,13 @@ public class VersionChecker {
                     String currentVersion = plugin.getDescription().getVersion();
 
                     if (!currentVersion.equalsIgnoreCase(latestVersion)) {
-                        plugin.getLogger().warning("Es ist eine neue Version verfügbar: " + latestVersion + " (du hast: " + currentVersion + ")");
+                        plugin.getLogger().warning("A new version is available: " + latestVersion + " (installed: " + currentVersion + ")");
                     } else {
-                        plugin.getLogger().info("Du verwendest die neueste Version.");
+                        plugin.getLogger().info("You are using the newest version.");
                     }
                 }
             } catch (IOException e) {
-                plugin.getLogger().warning("Konnte keine Update-Informationen abrufen: " + e.getMessage());
+                plugin.getLogger().warning("Can't get update informations: " + e.getMessage());
             }
         });
     }
