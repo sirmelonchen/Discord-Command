@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class VersionChecker {
 
-    private static final String VERSION_URL = "https://raw.githubusercontent.com/sirmelonchen/Discord-Command/refs/heads/main/version.txt";
+    private static final String VERSION_URL = "https://raw.githubusercontent.com/sirmelonchen/Discord-Command/main/version.txt";
     private final JavaPlugin plugin;
 
     public VersionChecker(JavaPlugin plugin) {
