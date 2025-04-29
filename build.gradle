@@ -35,6 +35,13 @@ tasks {
     }
 }
 
+tasks.register('printVersion') {
+    doLast {
+        println version
+    }
+}
+
+
 def targetJavaVersion = 21
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
