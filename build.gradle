@@ -13,9 +13,6 @@ processResources {
 }
 jar {
     archiveBaseName = 'DiscordCommand'  // Der Name der generierten .jar-Datei
-    archiveVersion.set('')           // Keine Versionsnummer im Namen
-    archiveClassifier.set('')        // Kein -plain oder -all etc.
-    archiveFileName.set("DiscordCommand.jar")
 }
 
 repositories {
