@@ -29,7 +29,12 @@ public class VersionChecker {
                     String latestVersion = in.readLine().trim();
                     String currentVersion = plugin.getDescription().getVersion();
 
-                    if (!currentVersion.equalsIgnoreCase(latestVersion)) {
+                    int currentRev = extractRevision(currentVersion);
+                    int latestRev = extractRevision(latestVersion);
+
+                    if (currentRev == -1 || latestRev == -1) {
+                        plugin.getLogger().warning("Could not parse revision numbers properly.");
+                    } else if (latestRev > currentRev) {
                         plugin.getLogger().warning("A new version is available: " + latestVersion + " (installed: " + currentVersion + ")");
                     } else {
                         plugin.getLogger().info("You are using the newest version.");
@@ -39,5 +44,23 @@ public class VersionChecker {
                 plugin.getLogger().warning("Can't get update informations: " + e.getMessage());
             }
         });
+    }
+
+    private int extractRevision(String version) {
+        if (version == null || !version.contains("rev-")) {
+            return -1;
+        }
+
+        String[] parts = version.split("rev-");
+        if (parts.length != 2) {
+            return -1;
+        }
+
+        try {
+            return Integer.parseInt(parts[1].trim());
+        } catch (NumberFormatException e) {
+            plugin.getLogger().warning("Invalid revision format: " + version);
+            return -1;
+        }
     }
 }
