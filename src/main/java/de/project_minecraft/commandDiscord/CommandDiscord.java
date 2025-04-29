@@ -28,14 +28,14 @@ public final class CommandDiscord extends JavaPlugin {
             Metrics metrics = new Metrics(this, pluginId);
         } else {
             // bStats deaktivieren (bei Bedarf, aber in den meisten Fällen wird das automatisch durch bStats gehandhabt)
-            getLogger().warning("bStats wurde vom Nutzer deaktiviert.");
+            getLogger().warning("bStats was disabled by user.");
         }
-        getLogger().info("Plugin aktiviert!");
+        getLogger().info("Discord Command Plugin activated!");
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("Plugin Deaktiviert!");
+        getLogger().info("Discord Command Plugin activated!");
         // Plugin shutdown logic
     }
     public static CommandDiscord getInstance(){
