@@ -6,11 +6,6 @@ plugins {
 group = 'de.project_minecraft'
 version = '1.1 rev-6'
 
-processResources {
-    filesMatching('plugin.yml') {
-        expand(version: project.version)
-    }
-}
 jar {
     archiveBaseName = 'DiscordCommand'  // Der Name der generierten .jar-Datei
 }
@@ -66,10 +61,9 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 processResources {
-    def props = [version: version]
-    inputs.properties props
-    filteringCharset 'UTF-8'
+    // Der "expand"-Block muss mit einer Map arbeiten
     filesMatching('plugin.yml') {
-        expand props
+        // Hier übergeben wir das Projekt-Attribut `version`
+        expand(version: project.version)
     }
 }
