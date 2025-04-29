@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'de.project_minecraft'
-version = '1.1 rev-2'
+version = '1.1 rev-3'
 
 jar {
     archiveBaseName = 'DiscordCommand'  // Der Name der generierten .jar-Datei

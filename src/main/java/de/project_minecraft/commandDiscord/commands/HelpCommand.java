@@ -23,7 +23,7 @@ public class HelpCommand implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
         Player player = (Player) sender;
         String version = plugin.getPluginMeta().getVersion();
-        String website = plugin.getConfig().getString("website");
+        String website = "https://github.com/sirmelonchen/Discord-Command";
 
         assert website != null;
         TextComponent message = Component.text("=== ")
