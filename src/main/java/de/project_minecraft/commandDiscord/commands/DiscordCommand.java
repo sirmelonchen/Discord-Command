@@ -38,7 +38,7 @@ public class DiscordCommand implements CommandExecutor {
             return new HelpCommand(plugin).onCommand(sender, command, label, args);
         }
 
-        sender.sendMessage("§cUnbekannter Unterbefehl! Verwende: /discord help");
+        sender.sendMessage("§cUnknown command! Use: /discord help");
         return false;
     }
 }
