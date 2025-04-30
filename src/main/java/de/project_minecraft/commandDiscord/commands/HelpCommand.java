@@ -43,6 +43,11 @@ public class HelpCommand implements CommandExecutor {
                 .append(Component.text("\n\n"))
                 .append(Component.text("Commands:\n")
                         .color(TextColor.color(0xFFFF00))) // Gelb
+                .append(Component.text("/discord")
+                        .color(TextColor.color(0x00FFFF))) // Aqua
+                .append(Component.text(" - Shows the Discord link")
+                        .color(TextColor.color(0x808080)))
+                .append(Component.text("\n"))
                 .append(Component.text("/discord reload")
                         .color(TextColor.color(0x00FFFF))) // Aqua
                 .append(Component.text(" - Reloads the config")

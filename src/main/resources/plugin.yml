@@ -6,7 +6,7 @@ authors:
 description: Ein Command der einen Discord-Link ausspuckt
 commands:
   discord:
-    description: Hauptbefehl
+    description: Discord Link
     aliases: [d]
 command-completions:
   discord:
@@ -14,5 +14,5 @@ command-completions:
     tab-completer: de.project_minecraft.commandDiscord.commands.discordCommandTabCompleter
 permissions:
   discord.admin:
-    description: Erlaubt das Bearbeiten der Konfiguration
+    description: Allows executing admin commands
     default: op
