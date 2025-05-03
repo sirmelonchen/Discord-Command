@@ -3,12 +3,11 @@ package de.project_minecraft.commandDiscord;
 
 import de.project_minecraft.commandDiscord.commands.DiscordCommand;
 import de.project_minecraft.commandDiscord.commands.DiscordCommandTabCompleter;
+import de.project_minecraft.commandDiscord.listeners.AdminJoinListener;
 import de.project_minecraft.commandDiscord.misc.Metrics;
 import de.project_minecraft.commandDiscord.misc.VersionChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.concurrent.Callable;
 
 public final class CommandDiscord extends JavaPlugin {
 
@@ -23,7 +22,8 @@ public final class CommandDiscord extends JavaPlugin {
         getCommand("discord").setExecutor(new DiscordCommand(this));
         getCommand("discord").setTabCompleter(new DiscordCommandTabCompleter(this));  // TabCompleter für /discord und Unterbefehle
         saveDefaultConfig();
-        new VersionChecker(this).checkForUpdate();
+        VersionChecker versionChecker = new VersionChecker(this);
+        versionChecker.checkForUpdate();
         if (bStatsEnabled) {
             // bStats initialisieren, falls die Einstellung aktiviert ist
             int pluginId = 25655; // Ersetze dies mit deiner eigenen Plugin-ID von bStats
@@ -32,6 +32,9 @@ public final class CommandDiscord extends JavaPlugin {
             // bStats deaktivieren (bei Bedarf, aber in den meisten Fällen wird das automatisch durch bStats gehandhabt)
             getLogger().warning("bStats was disabled by user.");
         }
+        Bukkit.getScheduler().runTaskLater(this, () -> {
+            getServer().getPluginManager().registerEvents(new AdminJoinListener(versionChecker), this);
+        }, 60L);
         getLogger().info("Discord Command Plugin activated!");
     }
 
