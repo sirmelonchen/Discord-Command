@@ -6,14 +6,27 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.entity.Player;
 
+/**
+ * The type Admin join listener.
+ */
 public class AdminJoinListener implements Listener {
 
     private final VersionChecker versionChecker;
 
+    /**
+     * Instantiates a new Admin join listener.
+     *
+     * @param versionChecker the version checker
+     */
     public AdminJoinListener(VersionChecker versionChecker) {
         this.versionChecker = versionChecker;
     }
 
+    /**
+     * On admin join.
+     *
+     * @param event the event
+     */
     @EventHandler
     public void onAdminJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();

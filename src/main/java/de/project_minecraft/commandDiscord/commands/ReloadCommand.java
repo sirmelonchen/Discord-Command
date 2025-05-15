@@ -9,8 +9,17 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * The type Reload command.
+ */
 public class ReloadCommand implements CommandExecutor {
     private final JavaPlugin plugin;
+
+    /**
+     * Instantiates a new Reload command.
+     *
+     * @param plugin the plugin
+     */
     public ReloadCommand(JavaPlugin plugin){
         this.plugin = plugin;
     }

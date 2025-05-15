@@ -10,9 +10,17 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Discord command tab completer.
+ */
 public class DiscordCommandTabCompleter implements TabCompleter {
     private final CommandDiscord plugin;
 
+    /**
+     * Instantiates a new Discord command tab completer.
+     *
+     * @param plugin the plugin
+     */
     public DiscordCommandTabCompleter(CommandDiscord plugin) {
         this.plugin = plugin;
     }

@@ -9,6 +9,9 @@ import de.project_minecraft.commandDiscord.misc.VersionChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * The type Command discord.
+ */
 public final class CommandDiscord extends JavaPlugin {
 
     private static CommandDiscord instance;
@@ -43,6 +46,12 @@ public final class CommandDiscord extends JavaPlugin {
         getLogger().info("Discord Command Plugin activated!");
         // Plugin shutdown logic
     }
+
+    /**
+     * Get instance command discord.
+     *
+     * @return the command discord
+     */
     public static CommandDiscord getInstance(){
         return instance;
     }

@@ -14,8 +14,17 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.TextColor;
 
+/**
+ * The type Help command.
+ */
 public class HelpCommand implements CommandExecutor {
     private final JavaPlugin plugin;
+
+    /**
+     * Instantiates a new Help command.
+     *
+     * @param plugin the plugin
+     */
     public HelpCommand(JavaPlugin plugin){
         this.plugin = plugin;
     }

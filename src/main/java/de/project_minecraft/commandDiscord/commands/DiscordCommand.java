@@ -10,8 +10,17 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * The type Discord command.
+ */
 public class DiscordCommand implements CommandExecutor {
     private final JavaPlugin plugin;
+
+    /**
+     * Instantiates a new Discord command.
+     *
+     * @param plugin the plugin
+     */
     public DiscordCommand(JavaPlugin plugin){
         this.plugin = plugin;
     }

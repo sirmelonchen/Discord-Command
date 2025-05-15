@@ -7,8 +7,17 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * The type Edit command.
+ */
 public class EditCommand implements CommandExecutor {
     private final JavaPlugin plugin;
+
+    /**
+     * Instantiates a new Edit command.
+     *
+     * @param plugin the plugin
+     */
     public EditCommand(JavaPlugin plugin){
         this.plugin = plugin;
     }
