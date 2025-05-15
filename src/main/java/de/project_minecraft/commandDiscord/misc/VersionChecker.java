@@ -9,18 +9,28 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * The type Version checker.
+ */
 public class VersionChecker {
-
     private static final String VERSION_URL = "https://raw.githubusercontent.com/sirmelonchen/Discord-Command/main/version.txt";
     private final JavaPlugin plugin;
 
     private boolean updateAvailable = false;
     private String latestVersionString = "";
 
+    /**
+     * Instantiates a new Version checker.
+     *
+     * @param plugin the plugin
+     */
     public VersionChecker(JavaPlugin plugin) {
         this.plugin = plugin;
     }
 
+    /**
+     * Check for update.
+     */
     public void checkForUpdate() {
         Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
@@ -74,10 +84,21 @@ public class VersionChecker {
         }
     }
 
+    /**
+     * Is update available boolean.
+     *
+     * @return the boolean
+     */
     public boolean isUpdateAvailable() {
+
         return updateAvailable;
     }
 
+    /**
+     * Gets latest version string.
+     *
+     * @return the latest version string
+     */
     public String getLatestVersionString() {
         return latestVersionString;
     }
