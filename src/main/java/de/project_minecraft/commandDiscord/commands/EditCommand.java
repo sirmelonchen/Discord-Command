@@ -1,11 +1,17 @@
 package de.project_minecraft.commandDiscord.commands;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.TextColor;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
+
+import java.awt.*;
 
 /**
  * The type Edit command.
@@ -37,25 +43,36 @@ public class EditCommand implements CommandExecutor {
         // Die Konfiguration holen
         FileConfiguration config = plugin.getConfig();
         if (config.contains(key)) {
-            // Setze den Wert in der Konfiguration
-            config.set(key, value);
-
-            // Speichern der Konfiguration
-            plugin.saveConfig();
-
-            // Erfolgsnachricht an den Sender senden
-            sender.sendMessage("§aThe value for " + key + " has been set to " + value + " and saved!");
-
-            plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "discord reload");
-            sender.sendMessage("§aThe config was reloaded.");
+            if (key.contains("link")) {
+                if (checkLink(value)) {
+                    // Gültiger Discord-Link – setze und speichere
+                    config.set(key, value);
+                    plugin.saveConfig();
+                    sender.sendMessage("§aThe value for " + key + " has been set to " + value + " and saved!");
+                    plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "discord reload");
+                    sender.sendMessage("§aThe config was reloaded.");
+                } else {
+                    // Ungültiger Link – Fehlermeldung
+                    TextComponent message = Component.text("Your value for the link key is not a valid Discord invite link!")
+                            .color(TextColor.color(0xFF000E))
+                            .decorate(TextDecoration.BOLD);
+                    sender.sendMessage(message);
+                }
+            } else {
+                // Kein Link – direkt speichern
+                config.set(key, value);
+                plugin.saveConfig();
+                sender.sendMessage("§aThe value for " + key + " has been set to " + value + " and saved!");
+                plugin.getServer().dispatchCommand(plugin.getServer().getConsoleSender(), "discord reload");
+                sender.sendMessage("§aThe config was reloaded.");
+            }
         } else {
-            // Key existiert nicht -> Fehlermeldung
+            // Ungültiger Key
             sender.sendMessage("§cInvalid key: '" + key + "'. Please choose an existing key.");
         }
-
-
-
-
         return true;
+    }
+    private boolean checkLink(String link){
+        return link.matches("^https://discord\\.gg/[a-zA-Z0-9]+$");
     }
 }
