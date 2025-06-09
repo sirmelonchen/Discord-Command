@@ -74,10 +74,10 @@ public class HelpCommand implements CommandExecutor {
                 .append(Component.text("\n\n"))
                 .append(Component.text("More informations:\n")
                         .color(TextColor.color(0xFFFF00))) // Gelb
-                .append(Component.text("Website: ")
+                .append(Component.text("Github: ")
                         .color(TextColor.color(0x808080))) // Grau
                 .append(Component.text(website)
-                        .hoverEvent(HoverEvent.showText(Component.text("Click here for the website!")
+                        .hoverEvent(HoverEvent.showText(Component.text("Click here for the Github Page!")
                                 .color(NamedTextColor.DARK_RED)
                                 .decorate(TextDecoration.BOLD)))
                         .clickEvent(ClickEvent.openUrl(website))
