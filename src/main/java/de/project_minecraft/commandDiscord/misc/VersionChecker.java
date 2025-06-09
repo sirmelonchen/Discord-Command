@@ -45,10 +45,6 @@ public class VersionChecker {
                     int currentRev = extractRevision(currentVersion);
                     int latestRev = extractRevision(latestVersion);
 
-                    // Debug logging
-                    plugin.getLogger().info("Current version: " + currentVersion);
-                    plugin.getLogger().info("Latest version: " + latestVersion);
-                    plugin.getLogger().info("Parsed revisions: current=" + currentRev + ", latest=" + latestRev);
 
                     if (currentRev == -1 || latestRev == -1) {
                         plugin.getLogger().warning("Could not parse revision numbers properly.");
