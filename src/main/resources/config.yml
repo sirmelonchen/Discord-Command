@@ -1,2 +1,4 @@
 discord_link: "https://discord.gg/code"
 bstats-enabled: true
+enable-discord-bot: "true"
+discord-bot-token: "YOUR_BOT_TOKEN_HERE" # Security Notice: Do not share your bot token publicly

@@ -3,6 +3,7 @@ package de.project_minecraft.commandDiscord;
 
 import de.project_minecraft.commandDiscord.commands.DiscordCommand;
 import de.project_minecraft.commandDiscord.commands.DiscordCommandTabCompleter;
+import de.project_minecraft.commandDiscord.discord.DiscordBot;
 import de.project_minecraft.commandDiscord.listeners.AdminJoinListener;
 import de.project_minecraft.commandDiscord.misc.Metrics;
 import de.project_minecraft.commandDiscord.misc.VersionChecker;
@@ -39,6 +40,9 @@ public final class CommandDiscord extends JavaPlugin {
             getServer().getPluginManager().registerEvents(new AdminJoinListener(versionChecker), this);
         }, 60L);
         getLogger().info("Discord Command Plugin activated!");
+
+        // Start Discord Bot
+        DiscordBot discordBot = new DiscordBot(getConfig().getString("discord-bot-token"));
     }
 
     @Override
