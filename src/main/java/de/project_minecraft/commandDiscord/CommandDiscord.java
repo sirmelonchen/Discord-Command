@@ -43,6 +43,7 @@ public final class CommandDiscord extends JavaPlugin {
 
         // Start Discord Bot
         DiscordBot discordBot = new DiscordBot(getConfig().getString("discord-bot-token"));
+        discordBot.Initialize();
     }
 
     @Override
